@@ -1,3 +1,9 @@
+
+:root{
+  --main-color: #B9F362;
+  --glow-color: #49fb35;
+}
+
 html,
 body {
   height: 100%;
@@ -60,13 +66,13 @@ span {
 #it,
 #is,
 span.active {
-  color: #B9F362 !important;
+  color: var(--main-color) !important;
   transition: color 0.4s ease-out;
   -ms-transition: color 0.4s ease-out;
   -moz-transition: color 0.4s ease-out;
   -webkit-transition: color 0.4s ease-out;
-  text-shadow: 0 0 5px #49fb35, 0 0 10px #49fb35, 0 0 20px #49fb35,
-    0 0 40px #49fb35;
+  text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 20px var(--glow-color),
+    0 0 40px var(--glow-color);
 }
 
 #line-1,
