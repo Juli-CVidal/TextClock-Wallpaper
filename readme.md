@@ -3,7 +3,7 @@
 
 
 <ul>
-  <li>Aded option to change the image (replace Background.png in the bg folder)</li>
+  <li>Added option to change the image (replace Background.png in the bg folder)</li>
   <li>Added option to change the main color (replace --main-color and --glow-color in the css file)</li>
  </ul>
  
