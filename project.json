@@ -1,0 +1,23 @@
+{
+	"description" : "Scaleable to ANY resolution this is \"Bill Searle\" by Bill Searle running at 60fps\n\nSource: http://codepen.io/searleb/pen/pvQaJB",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
+			}
+		}
+	},
+	"preview" : "preview.jpg",
+	"tags" : [ "Abstract" ],
+	"title" : "RELOJ_TEXTO",
+	"type" : "web",
+	"version" : 0,
+	"visibility" : "public"
+}
