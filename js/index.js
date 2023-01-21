@@ -1,194 +1,102 @@
-// function textClock() {
+let day, hours, minutes, seconds, time;
 
-//     var newDate = new Date(),
-//         day = newDate.getDay(),
-//         hours = newDate.getHours(),
-//         minutes = newDate.getMinutes().toString(),
-//         seconds = newDate.getSeconds().toString();
+const HOURS_OBJ = {
+  1: "#one",
+  2: "#two",
+  3: "#three",
+  4: "#four",
+  5: "#five-hr",
+  6: "#six",
+  7: "#seven",
+  8: "#eight",
+  9: "#nine",
+  10: "#ten-hr",
+  11: "#eleven",
+  12: "#twelve",
+  13: "#one",
+  23: "#eleven",
+  24: "#midnight",
+  0: "#midnight",
+};
 
-//     if (hours > 12 && hours !== 0 && hours !== 23) {
-//         hours = hours - 12;
-//     }
-//     if (minutes < 10) {
-//         minutes = 0 + minutes;
-//     }
-//     if (seconds < 10) {
-//         seconds = 0 + seconds;
-//     }
+const MINUTE_DESCRIPTIONS = [
+  { from: "0:00", to: "5:00", description: "oclock" },
+  { from: "5:00", to: "10:00", description: "five past" },
+  { from: "10:00", to: "15:00", description: "ten past" },
+  { from: "15:00", to: "20:00", description: "quarter past" },
+  { from: "20:00", to: "25:00", description: "twenty past" },
+  { from: "25:00", to: "30:00", description: "twenty five past" },
+  { from: "30:00", to: "35:00", description: "half past" },
+  { from: "35:00", to: "40:00", description: "twenty five to" },
+  { from: "40:00", to: "45:00", description: "twenty to" },
+  { from: "45:00", to: "50:00", description: "quarter to" },
+  { from: "50:00", to: "55:00", description: "ten to" },
+  { from: "55:00", to: "60:00", description: "five to" },
+];
 
-//     var minsSecs = minutes + seconds;
-//     if (minsSecs > 3230) {
-//         hours++;
-//     }
-
-//     if (day == 5) {
-//         $('#tgif').html('TGIF');
-//     }
-
-//     hoursObj = {
-//         1: '#one',
-//         2: '#two',
-//         3: '#three',
-//         4: '#four',
-//         5: '#five-hr',
-//         6: '#six',
-//         7: '#seven',
-//         8: '#eight',
-//         9: '#nine',
-//         10: '#ten-hr',
-//         11: '#eleven',
-//         12: '#twelve',
-//         23: '#eleven',
-//         24: '#midnight',
-//         0: '#midnight'
-//     };
-
-//     updateHour(hoursObj[hours]);
-
-//     if ((minsSecs >= 5730 && minsSecs < 6000) || (minsSecs >= 0 && minsSecs < 230)) {
-//         if (hours !== 24 && hours !== 0) {
-//             updateDesc('#oclock');
-//         }
-//     } else if (minsSecs >= 230 && minsSecs < 730) {
-//         updateDesc('#five, #past');
-//     } else if (minsSecs >= 730 && minsSecs < 1230) {
-//         updateDesc('#ten, #past');
-//     } else if (minsSecs >= 1230 && minsSecs < 1730) {
-//         updateDesc('#quarter, #past');
-//     } else if (minsSecs >= 1730 && minsSecs < 2230) {
-//         updateDesc('#twenty, #past');
-//     } else if (minsSecs >= 2230 && minsSecs < 2730) {
-//         updateDesc('#twenty, #five, #past');
-//     } else if (minsSecs >= 2730 && minsSecs < 3230) {
-//         updateDesc('#half, #past');
-//     } else if (minsSecs >= 3230 && minsSecs < 3730) {
-//         updateDesc('#twenty, #five, #to');
-//     } else if (minsSecs >= 3730 && minsSecs < 4230) {
-//         updateDesc('#twenty, #to');
-//     } else if (minsSecs >= 4230 && minsSecs < 4730) {
-//         updateDesc('#quarter, #to');
-//     } else if (minsSecs >= 4730 && minsSecs < 5230) {
-//         updateDesc('#ten, #to');
-//     } else if (minsSecs >= 5230 && minsSecs < 5730) {
-//         updateDesc('#five, #to');
-//     } else {
-//         updateDesc();
-//     }
-// }
-
-// function updateDesc(classes) {
-//     $('.desc').removeClass('active');
-//     $(classes).addClass('active');
-// }
-
-// function updateHour(classes) {
-//     $('.hr').removeClass('active');
-//     $(classes).addClass('active');
-// }
-
-// setInterval(function() {
-//     textClock();
-// }, 500);
-
-// textClock();
-
-function textClock() {
-
-    var newDate = new Date(),
-        day = newDate.getDay(),
-        hours = newDate.getHours(),
-        minutes = newDate.getMinutes().toString(),
-        seconds = newDate.getSeconds().toString();
-
-    if (hours > 12 && hours !== 0 && hours !== 23) {
-        hours = hours - 12;
+function roundToNearest() {
+  let result = "";
+  console.log(time)
+  MINUTE_DESCRIPTIONS.forEach(({ from, to, description }) => {
+    if (time >= from && time < to) {
+      result = description
+      console.log(description);
+      return;
     }
-    if (minutes < 10) {
-        minutes = 0 + minutes;
-    }
-    if (seconds < 10) {
-        seconds = 0 + seconds;
-    }
-
-    var minsSecs = minutes + seconds;
-    if (minsSecs > 3230) {
-        hours++;
-    }
-
-    if (day == 0) {
-        document.querySelector("#name").innerHTML("BOBCAT");
-        // $('#name').html('BOBCAT');
-    }
-
-    hoursObj = {
-        1: '#one',
-        2: '#two',
-        3: '#three',
-        4: '#four',
-        5: '#five-hr',
-        6: '#six',
-        7: '#seven',
-        8: '#eight',
-        9: '#nine',
-        10: '#ten-hr',
-        11: '#eleven',
-        12: '#twelve',
-        13: '#one',
-        23: '#eleven',
-        24: '#midnight',
-        0: '#midnight'
-    };
-
-    updateHour(hoursObj[hours]);
-
-    if ((minsSecs >= 5730 && minsSecs < 6000) || (minsSecs >= 0 && minsSecs < 230)) {
-        if (hours !== 24 && hours !== 0) {
-            updateDesc('#oclock');
-        }
-    } else if (minsSecs >= 230 && minsSecs < 730) {
-        updateDesc('#five, #past');
-    } else if (minsSecs >= 730 && minsSecs < 1230) {
-        updateDesc('#ten, #past');
-    } else if (minsSecs >= 1230 && minsSecs < 1730) {
-        updateDesc('#quarter, #past');
-    } else if (minsSecs >= 1730 && minsSecs < 2230) {
-        updateDesc('#twenty, #past');
-    } else if (minsSecs >= 2230 && minsSecs < 2730) {
-        updateDesc('#twenty, #five, #past');
-    } else if (minsSecs >= 2730 && minsSecs < 3230) {
-        updateDesc('#half, #past');
-    } else if (minsSecs >= 3230 && minsSecs < 3730) {
-        updateDesc('#twenty, #five, #to');
-    } else if (minsSecs >= 3730 && minsSecs < 4230) {
-        updateDesc('#twenty, #to');
-    } else if (minsSecs >= 4230 && minsSecs < 4730) {
-        updateDesc('#quarter, #to');
-    } else if (minsSecs >= 4730 && minsSecs < 5230) {
-        updateDesc('#ten, #to');
-    } else if (minsSecs >= 5230 && minsSecs < 5730) {
-        updateDesc('#five, #to');
-    } else {
-        updateDesc();
-    }
+  });
+  return result;
 }
 
-function updateDesc(classes) {
-    document.querySelectorAll(".desc").forEach(element => element.classList.remove("active"));
-    // $('.desc').removeClass('active');
+function setDate() {
+  const DATE = new Date();
+  day = DATE.getDate();
+  hours = DATE.getHours();
+  minutes = DATE.getMinutes();
+  seconds = DATE.getSeconds();
 
-    document.querySelectorAll(classes).forEach(element => element.classList.add('active'));
-    // $(classes).addClass('active');
+  if (hours > 12 && hours !== 0 && hours !== 23) {
+    hours = hours - 12;
+  }
+  if (minutes >= 30) {
+    hours++;
+  }
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  time = `${minutes}:${seconds}`;
+}
+
+function textClock() {
+  setDate();
+  if (day == 0) {
+    document.querySelector("#name").innerHTML = "BOBCAT";
+    // $('#name').html('BOBCAT');
+  }
+  updateHour(HOURS_OBJ[hours]);
+  updateDesc(roundToNearest());
+}
+
+function updateElements(selector, classes, activeClass) {
+    document.querySelectorAll(selector)
+    .forEach((element) => element.classList.remove(activeClass));
+    document.querySelectorAll(classes)
+    .forEach((element) => element.classList.add(activeClass));
+}
+
+function updateDesc(description) {
+  const classes = description
+    .split(" ")
+    .map((desc) => `#${desc}`)
+    .join(", ");
+  updateElements(".desc", classes, "active");
 }
 
 function updateHour(classes) {
-    document.querySelectorAll('.hr').forEach(element => element.classList.remove('active'));
-    // $('.hr').removeClass('active');
-    document.querySelectorAll(classes).forEach(element => element.classList.add('active'));
-    // $(classes).addClass('active');
+  updateElements(".hr", classes, "active");
 }
 
-setInterval(function() {
-    textClock();
-}, 1000);
+// setInterval(function () {
+//   textClock();
+// }, 1000);
 
 textClock();
