@@ -7,7 +7,7 @@
   <li>Added option to change the main color (replace --main-color and --glow-color in the css file)</li>
  </ul>
  
- ## Preview of the wallpaper: 
+ ## Here's the [preview](https://juli-cvidal.github.io/TextClock-Wallpaper/): 
 <div>
   <img src="https://github.com/Juli-CVidal/Personalized-TextClock-Wallpaper/blob/master/Background%20Preview.jpg"/>
  </div>
