@@ -12,15 +12,13 @@ body {
   pointer-events: none;
   font-family: "Helvetica", Arial;
   overflow: hidden;
+  background-image: url("../bg/Background.png");
   margin: 0;
 }
 .container {
   position: relative;
-  background-image: url("../bg/Background.png");
-  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
-  background-size: 100% 100%;
   text-align: justify;
 }
 

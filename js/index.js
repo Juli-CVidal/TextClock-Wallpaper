@@ -116,7 +116,8 @@ function textClock() {
     }
 
     if (day == 0) {
-        $('#name').html('BOBCAT');
+        document.querySelector("#name").innerHTML("BOBCAT");
+        // $('#name').html('BOBCAT');
     }
 
     hoursObj = {
@@ -172,13 +173,18 @@ function textClock() {
 }
 
 function updateDesc(classes) {
-    $('.desc').removeClass('active');
-    $(classes).addClass('active');
+    document.querySelectorAll(".desc").forEach(element => element.classList.remove("active"));
+    // $('.desc').removeClass('active');
+
+    document.querySelectorAll(classes).forEach(element => element.classList.add('active'));
+    // $(classes).addClass('active');
 }
 
 function updateHour(classes) {
-    $('.hr').removeClass('active');
-    $(classes).addClass('active');
+    document.querySelectorAll('.hr').forEach(element => element.classList.remove('active'));
+    // $('.hr').removeClass('active');
+    document.querySelectorAll(classes).forEach(element => element.classList.add('active'));
+    // $(classes).addClass('active');
 }
 
 setInterval(function() {
