@@ -95,8 +95,8 @@ function updateHour(classes) {
   updateElements(".hr", classes, "active");
 }
 
-// setInterval(function () {
-//   textClock();
-// }, 1000);
+setInterval(function () {
+  textClock();
+}, 1000);
 
 textClock();
