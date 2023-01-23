@@ -32,7 +32,7 @@ const MINUTE_DESCRIPTIONS = [
   { from: "42:30", to: "47:30", description: "quarter to" },
   { from: "47:30", to: "52:30", description: "ten to" },
   { from: "52:30", to: "57:30", description: "five to" },
-  ];
+];
 
 // const MINUTE_DESCRIPTIONS = [
 //   { from: "0:00", to: "5:00", description: "oclock" },
@@ -50,14 +50,12 @@ const MINUTE_DESCRIPTIONS = [
 // ];
 
 function roundToNearest() {
-  let result = "";
-  MINUTE_DESCRIPTIONS.forEach(({ from, to, description }) => {
-    if (time >= from && time < to) {
-      result = description
-      return;
-    }
+  const timeDescription = MINUTE_DESCRIPTIONS.find(({ from, to }) => {
+    return time >= from && time < to;
   });
-  return result;
+  if (timeDescription) {
+    return timeDescription.description;
+  }
 }
 
 function setDate() {
@@ -86,9 +84,11 @@ function textClock() {
 }
 
 function updateElements(selector, classes, activeClass) {
-    document.querySelectorAll(selector)
+  document
+    .querySelectorAll(selector)
     .forEach((element) => element.classList.remove(activeClass));
-    document.querySelectorAll(classes)
+  document
+    .querySelectorAll(classes)
     .forEach((element) => element.classList.add(activeClass));
 }
 
@@ -97,6 +97,7 @@ function updateDesc(description) {
     .split(" ")
     .map((desc) => `#${desc}`)
     .join(", ");
+
   updateElements(".desc", classes, "active");
 }
 
