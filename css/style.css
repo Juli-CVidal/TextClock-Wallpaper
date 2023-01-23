@@ -1,5 +1,5 @@
-:root{
-  --main-color: #B9F362;
+:root {
+  --main-color: #b9f362;
   --glow-color: #49fb35;
 }
 
@@ -14,7 +14,7 @@ body {
   margin: 0;
 }
 
-html{
+html {
   background-image: url("../bg/Background.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -42,11 +42,10 @@ html{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.05);
   border-radius: 15%;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-
 
 p,
 span {
@@ -68,13 +67,14 @@ span {
 #it,
 #is,
 span.active {
+  font-size: 19px;
   color: var(--main-color) !important;
   transition: color 0.4s ease-out;
   -ms-transition: color 0.4s ease-out;
   -moz-transition: color 0.4s ease-out;
   -webkit-transition: color 0.4s ease-out;
-  text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 20px var(--glow-color),
-    0 0 40px var(--glow-color);
+  text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color),
+    0 0 20px var(--glow-color), 0 0 40px var(--glow-color);
 }
 
 #line-1,
