@@ -34,9 +34,9 @@ const HOURS_OBJ = {
 // ];
 
 const MINUTE_DESCRIPTIONS = [
-  { from: "57:30", to: "2:30", description: "oclock" },
-  { from: "2:30", to: "7:30", description: "five past" },
-  { from: "7:30", to: "12:30", description: "ten past" },
+  { from: "57:30", to: "02:30", description: "oclock" },
+  { from: "02:30", to: "07:30", description: "five past" },
+  { from: "07:30", to: "12:30", description: "ten past" },
   { from: "12:30", to: "17:30", description: "quarter past" },
   { from: "17:30", to: "22:30", description: "twenty past" },
   { from: "22:30", to: "27:30", description: "twenty five past" },
@@ -51,7 +51,7 @@ const MINUTE_DESCRIPTIONS = [
 
 function getDescription() {
   const timeDescription = MINUTE_DESCRIPTIONS.find(({ from, to }) => {
-    // console.log(from, time, to)
+    console.log(from, time, to)
     return time >= from && time < to;
   });
   if (timeDescription) {
@@ -101,8 +101,8 @@ function updateHour(classes) {
   updateElements(".hr", classes, "active");
 }
 
-// setInterval(function () {
-//   textClock();
-// }, 1000);
+setInterval(function () {
+  textClock();
+}, 1000);
 
 textClock();
