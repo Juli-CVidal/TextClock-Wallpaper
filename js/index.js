@@ -51,7 +51,7 @@ const MINUTE_DESCRIPTIONS = [
 
 function getDescription() {
   const timeDescription = MINUTE_DESCRIPTIONS.find(({ from, to }) => {
-    console.log(from, time, to)
+    // console.log(from, time, to)
     return time >= from && time < to;
   });
   if (timeDescription) {
@@ -67,10 +67,11 @@ function setDate() {
 
   hours = hours > 12 ? hours - 12 : hours;
   hours = minutes >= 30 ? hours + 1 : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
   seconds = seconds < 10 ? "0" + seconds : seconds;
 
   time = `${minutes}:${seconds}`;
-  console.log(time);
+  // console.log(time);
 }
 
 function textClock() {
