@@ -1,13 +1,20 @@
 # Hello everyone! I want to share with you the wallpaper that I am using
-### It is a reedition of a text based clock, special thanks to SLP GAMING for uploading it to Wallpaper Engine.
 
+### It is a text-based clock, in which depending on the time the message that will be displayed will be
 
-<ul>
-  <li>Added option to change the image (replace Background.png in the bg folder)</li>
-  <li>Added option to change the main color (replace --main-color and --glow-color in the css file)</li>
- </ul>
- 
- ## Here's the [preview](https://juli-cvidal.github.io/TextClock-Wallpaper/): 
+> Ex: It is five to one, It is quarter past four
+
+* Added option to change the image
+  * replace Background.png in the bg folder
+
+* Added option to change the main color
+  * replace `--main-color` and `--glow-color` in the css file
+
+* The option to use automatic colors has been added 
+  * the last two scripts, `color-thief` and `auto-select-color`, must be uncommented
+
+## Here's the [preview](https://juli-cvidal.github.io/TextClock-Wallpaper/):
+
 <div>
   <img src="https://github.com/Juli-CVidal/Personalized-TextClock-Wallpaper/blob/master/Background%20Preview.jpg"/>
  </div>
