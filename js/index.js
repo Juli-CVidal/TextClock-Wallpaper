@@ -51,11 +51,9 @@ const MINUTE_DESCRIPTIONS = [
 
 function roundToNearest() {
   let result = "";
-  console.log(time)
   MINUTE_DESCRIPTIONS.forEach(({ from, to, description }) => {
     if (time >= from && time < to) {
       result = description
-      console.log(description);
       return;
     }
   });
