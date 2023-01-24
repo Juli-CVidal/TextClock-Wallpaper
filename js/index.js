@@ -1,4 +1,6 @@
 let hours, minutes, seconds, time;
+let clockInterval, currentDescription;
+const FIVE_MINUTES = 300_000;
 
 const HOURS_OBJ = {
   1: "#one",
@@ -48,38 +50,6 @@ const MINUTE_DESCRIPTIONS = [
   { from: "52:30", to: "57:30", description: "five to" },
 ];
 
-
-function getDescription() {
-  const timeDescription = MINUTE_DESCRIPTIONS.find(({ from, to }) => {
-    // console.log(from, time, to)
-    return time >= from && time < to;
-  });
-  if (timeDescription) {
-    return timeDescription.description;
-  }
-}
-
-function setDate() {
-  const date = new Date();
-  hours = date.getHours();
-  minutes = date.getMinutes();
-  seconds = date.getSeconds();
-
-  hours = hours > 12 ? hours - 12 : hours;
-  hours = minutes >= 30 ? hours + 1 : hours;
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  seconds = seconds < 10 ? "0" + seconds : seconds;
-
-  time = `${minutes}:${seconds}`;
-  // console.log(time);
-}
-
-function textClock() {
-  setDate();
-  updateHour(HOURS_OBJ[hours]);
-  updateDesc(getDescription());
-}
-
 function updateElements(selector, classes, activeClass) {
   document
     .querySelectorAll(selector)
@@ -102,8 +72,46 @@ function updateHour(classes) {
   updateElements(".hr", classes, "active");
 }
 
-setInterval(function () {
-  textClock();
-}, 1000);
+function getDescription() {
+  const timeDescription = MINUTE_DESCRIPTIONS.find(({ from, to }) => {
+    return time >= from && time < to;
+  });
+  if (timeDescription) {
+    return timeDescription.description;
+  }
+}
 
-textClock();
+function setDate() {
+  const date = new Date();
+  hours = date.getHours();
+  minutes = date.getMinutes();
+  seconds = date.getSeconds();
+
+  hours = hours > 12 ? hours - 12 : hours;
+  hours = minutes >= 30 ? hours + 1 : hours;
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  time = `${minutes}:${seconds}`;
+}
+
+function textClock() {
+  setDate();
+  updateHour(HOURS_OBJ[hours]);
+  updateDesc(getDescription());
+}
+
+function checkInterval() {
+  setDate();
+  const newDescription = getDescription();
+  currentDescription = currentDescription || newDescription;
+  if (currentDescription != newDescription) {
+    clearInterval(clockInterval);
+    clockInterval = setInterval(textClock, FIVE_MINUTES);
+  }
+}
+
+clockInterval = setInterval(() => {
+  textClock();
+  checkInterval();
+}, 1000);
