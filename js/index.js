@@ -104,7 +104,11 @@ function textClock() {
 function checkInterval() {
   setDate();
   const newDescription = getDescription();
-  currentDescription = currentDescription || newDescription;
+  if (!currentDescription){
+    currentDescription = newDescription;
+    textClock();
+  }
+
   if (currentDescription != newDescription) {
     clearInterval(clockInterval);
     clockInterval = setInterval(textClock, FIVE_MINUTES);
@@ -112,6 +116,5 @@ function checkInterval() {
 }
 
 clockInterval = setInterval(() => {
-  textClock();
   checkInterval();
 }, 1000);
