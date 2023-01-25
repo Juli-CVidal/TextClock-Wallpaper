@@ -11,7 +11,7 @@
   * replace `--main-color` and `--glow-color` in the css file
 
 * The option to use automatic colors has been added 
-  * the last three scripts, `color-thief` and `auto-select-color`, must be uncommented
+  * the last three scripts, `color-thief`, `tinycolor` and `auto-select-color`, must be uncommented
 
 ## Here's the [preview](https://juli-cvidal.github.io/TextClock-Wallpaper/):
 
