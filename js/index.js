@@ -87,8 +87,8 @@ function setDate() {
   minutes = date.getMinutes();
   seconds = date.getSeconds();
 
-  hours = hours > 12 ? hours - 12 : hours;
   hours = minutes >= 30 ? hours + 1 : hours;
+  hours = hours > 12 ? hours - 12 : hours;
   minutes = minutes < 10 ? "0" + minutes : minutes;
   seconds = seconds < 10 ? "0" + seconds : seconds;
 

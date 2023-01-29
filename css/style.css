@@ -17,7 +17,7 @@ body {
 html {
   background-image: url("../bg/Background.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 .container {
   position: relative;
