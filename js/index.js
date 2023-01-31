@@ -36,7 +36,6 @@ const HOURS_OBJ = {
 // ];
 
 const MINUTE_DESCRIPTIONS = [
-  { from: "57:30", to: "02:30", description: "oclock" },
   { from: "02:30", to: "07:30", description: "five past" },
   { from: "07:30", to: "12:30", description: "ten past" },
   { from: "12:30", to: "17:30", description: "quarter past" },
@@ -76,9 +75,7 @@ function getDescription() {
   const timeDescription = MINUTE_DESCRIPTIONS.find(({ from, to }) => {
     return time >= from && time < to;
   });
-  if (timeDescription) {
-    return timeDescription.description;
-  }
+  return timeDescription ? timeDescription.description : "oclock";
 }
 
 function setDate() {
